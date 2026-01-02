@@ -352,6 +352,7 @@
     /* skills end */
     .project-card{
       border-radius: 15px;
-       height:550px;
+       height: auto;
+       padding-bottom: 20px;
       background-color:  aliceblue; 
     }
