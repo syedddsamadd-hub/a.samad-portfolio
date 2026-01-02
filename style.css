@@ -7,6 +7,8 @@
     body {
       box-sizing: border-box;
       overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -352,10 +354,4 @@
       border-radius: 15px;
        height:550px;
       background-color:  aliceblue; 
-      animation: fade-in linear forwards;
-      animation-timeline: view();
-    }
-    @keyframes fade-in {
-      from{scale: .8; opacity: 1;}
-      to{scale: 1; opacity: 1;}
     }
