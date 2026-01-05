@@ -8,6 +8,15 @@ let data = [
     one: "https://syedddsamadd-hub.github.io/petbot/",
     two: "https://github.com/syedddsamadd-hub/petbot"
   },
+    {
+    img: "recipe.png",
+    title: "recipe app",
+    description: "a clean aand responsive modern recipe app where user can find his favourite recipe meal made with html ,css , javascript and Api of Db meals.",
+    button: "live",
+    button1: "view code",
+    one: "https://syedddsamadd-hub.github.io/recipe/",
+    two: "https://github.com/syedddsamadd-hub/recipe"
+  },
   {
     img: "todo.png",
     title: "to do list manager",
@@ -45,16 +54,7 @@ let data = [
     two: "index.html"
   },
   {
-    img: "voice.png",
-    title: "text to voice generator",
-    description: "This innovative Text to Voice Generator app instantly converts written text into clear, natural-sounding speech. Users can simply type or paste any text and listen to it in human voice.",
-    button: "live",
-    button1: "view code",
-    one: "https://textvoicechange.netlify.app/",
-    two: "https://github.com/syedddsamadd-hub/textchangeintovoice.git"
-  },
-  {
-    img: "generator.png",
+    img: "genrator.png",
     title: "dynamic-cards",
     description: "A dynamic e-commerce cards generator built using HTML,bootstrap and jquery. It allows users to enter data through an input field, and generates stylish cards based on their input with responsive design.",
     button: "live",
