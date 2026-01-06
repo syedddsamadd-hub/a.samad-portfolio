@@ -116,27 +116,30 @@
   <div class="col-lg-6 col-md-12 col-sm-12 col-12">
   <div style="top: 50px; border-radius: 20px;"  class="sec1 p-4 mx-3 d-block align-items-center position-relative mb-4">
     <h4 style="font-size: 34px;"class="text-capitalize text-center mb-3"> let's get in touch</h4>
-    <div style="border-radius: 30px; background-color:  aliceblue" class="info-card text-center my-4 py-4">
+    <div style="border-radius: 30px; font-size: 14px !important; 
+      box-shadow: 2px 20px 35px black;;" class="info-card text-center my-4 py-4">
    <p style="font-size: 24px;" class="text-capitalize ms-2"><i class="fa-solid fa-envelope me-2"></i>syedddsamadd@gmail.com</p>
    </div>
-   <div style="border-radius: 30px; background-color:  aliceblue" class="info-card text-center my-4 py-4">
+   <div style="border-radius: 30px; 
+      box-shadow: 2px 20px 35px black;;" class="info-card text-center my-4 py-4">
    <p style="font-size: 24px;" class="text-capitalize ms-2"><i class="fa-solid fa-phone me-2"></i>03160260319</p>
    </div>
-    <div style="border-radius: 30px; background-color:  aliceblue" class="info-card text-center  my-4 py-4">
+    <div style="border-radius: 30px; 
+      box-shadow: 2px 20px 35px black;;" class="info-card text-center  my-4 py-4">
    <p style="font-size: 24px;" class="text-capitalize ms-2"><i class="fa-solid fa-location-dot me-2"></i>baldia town karachi</p>
    </div>
   </div>
   </div>
   <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-   <div style="background-color:  aliceblue; border-radius: 20px;" class="sec2 p-4  mx-3 mt-3">
-    <h1 class="text-capitalize my-3 text-center">contact form</h1>
-    <label style="font-size: 14px;" class="form-label text-capitalize ms-2 fw-normal">your name</label>
+   <div style="box-shadow: 2px 20px 35px black; border-radius: 20px;" class="sec2 p-4  mx-3 mt-3">
+    <h1 class="text-capitalize my-3 text-center";>contact form</h1>
+    <label style="font-size: 14px;" class="form-label text-capitalize ms-2 fw-normal text-light">your name</label>
     <input style="border-radius: 20px;" type="text" class="form-control p-3 mb-3" id="">
-      <label style="font-size: 14px; " class="form-label text-capitalize ms-2 fw-normal">your email</label>
+      <label style="font-size: 14px; " class="form-label text-capitalize ms-2 fw-normal text-light">your email</label>
     <input style="border-radius: 20px;" type="email" class="form-control p-3 mb-3" id="">
-      <label style="font-size: 14px; " class="form-label text-capitalize ms-2 fw-normal">your subject</label>
+      <label style="font-size: 14px; " class="form-label text-capitalize ms-2 fw-normal text-light">your subject</label>
     <input style="border-radius: 20px;" type="text" class="form-control p-3 mb-3" id="">
-      <label style="font-size: 14px; " class="form-label text-capitalize ms-2 fw-normal">your message</label>
+      <label style="font-size: 14px; " class="form-label text-capitalize ms-2 fw-normal text-light">your message</label>
     <input style="border-radius: 20px;" type="text" class="form-control p-5 mb-3" id="">
     <button style="font-size: 20px; color:  #fff;" class="btn btn-primary d-block mx-auto w-100 fw-bold text-capitalize text-capitalize my-5 p-2">send message</button>
    </div>
@@ -145,28 +148,54 @@
 </div>
 <!-- end -->
  <!-- footer -->
-<div style="background-color: aliceblue; margin-top: 150px;" class="list1 d-flex justify-content-center align-items-center">
+<div style="margin-top: 150px;" id="foot1" class="list1 d-flex justify-content-center align-items-center">
     <ul class="list-unstyled text-light mt-2 d-flex">
-      <li><a style="font-size: 24px; color: black;" href="index.html">quik links</a></li>
-      <li><a class="text-dark" href="#home">home</a></li>
-      <li><a class="text-dark" href="#about">About</a></li>
-      <li><a class="text-dark" href="#skill1">skills</a></li>
-      <li><a class="text-dark" href="#project1">project</a></li>
-      <li><a class="text-dark" href="#contact1">Contact</a></li>
+      <li><a style="font-size: 24px; " href="index.html">quik links</a></li>
+      <li><a class="" href="#home">home</a></li>
+      <li><a class="" href="#about">About</a></li>
+      <li><a class="" href="#skill1">skills</a></li>
+      <li><a class="" href="#project1">project</a></li>
+      <li><a class="" href="#contact1">Contact</a></li>
     </ul>
 </div>
-<div style="color: black; background-color:aliceblue" class="last-box d-flex justify-content-center ">
+<div class="last-box d-flex justify-content-center">
   <hr>
   <p class="text-capitalize">copy right/all rights reseverd to 2025 </p>
 </div>
 <!-- end -->
         <script src="jquery.js"></script>
         <script>
-            $(document).ready(function(){
-        $(".menu-btn").click(function(){
-        $(".list1").slideToggle(500).toggleClass("active");
-          });
-          });
+// Toggle Button Script for Portfolio Navbar
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const menuBtn = document.querySelector('.menu-btn');
+  const navList = document.querySelector('.list1');
+  
+  // Toggle menu on button click
+  menuBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    navList.classList.toggle('active');
+    menuBtn.classList.toggle('active');
+  });
+  
+  // Close menu when clicking on nav links
+  const navLinks = document.querySelectorAll('.list1 a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navList.classList.remove('active');
+      menuBtn.classList.remove('active');
+    });
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!menuBtn.contains(e.target) && !navList.contains(e.target)) {
+      navList.classList.remove('active');
+      menuBtn.classList.remove('active');
+    }
+  });
+  
+});
         </script> 
         <script src="script.js"></script>
 </body>

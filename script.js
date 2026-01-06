@@ -86,3 +86,142 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 });
+
+// VIP Smooth Scroll Animation with Side Entry Effects
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+// Animation Observer
+const animationObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-in');
+    }
+  });
+}, observerOptions);
+
+// Initialize animations on page load
+document.addEventListener('DOMContentLoaded', () => {
+  
+  // Animate project cards with side entry
+  const projectCards = document.querySelectorAll('.project-card');
+  projectCards.forEach((card, index) => {
+    // Alternate left and right entry
+    if (index % 2 === 0) {
+      card.classList.add('slide-from-left');
+    } else {
+      card.classList.add('slide-from-right');
+    }
+    card.style.animationDelay = `${index * 0.15}s`;
+    animationObserver.observe(card);
+  });
+  
+  // Animate images from left
+  const images = document.querySelectorAll('img, .about-image, .profile-image');
+  images.forEach((img, index) => {
+    img.classList.add('slide-from-left');
+    img.style.animationDelay = `${index * 0.1}s`;
+    animationObserver.observe(img);
+  });
+  
+  // Animate paragraphs and text from right
+  const paragraphs = document.querySelectorAll('p, .about-text, .description');
+  paragraphs.forEach((para, index) => {
+    para.classList.add('slide-from-right');
+    para.style.animationDelay = `${index * 0.1}s`;
+    animationObserver.observe(para);
+  });
+  
+  // Animate sections
+  const sections = document.querySelectorAll('section, .about-section, .skills-section, .contact-section');
+  sections.forEach(section => {
+    animationObserver.observe(section);
+  });
+  
+  // Animate skill items from bottom
+  const skills = document.querySelectorAll('.skill-item, .skill-card');
+  skills.forEach((skill, index) => {
+    skill.style.animationDelay = `${index * 0.1}s`;
+    animationObserver.observe(skill);
+  });
+  
+  // Animate heading elements from top
+  const headings = document.querySelectorAll('h1, h2, h3');
+  headings.forEach((heading, index) => {
+    heading.classList.add('slide-from-top');
+    heading.style.animationDelay = `${index * 0.1}s`;
+    animationObserver.observe(heading);
+  });
+  
+  // Smooth scroll for navigation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // Parallax effect on scroll
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if(!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.parallax-effect');
+        parallaxElements.forEach(el => {
+          const speed = el.dataset.speed || 0.5;
+          el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  
+  // Add hover 3D effect to cards
+  projectCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+    });
+  });
+  
+});
+
+// Navbar scroll effect
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('nav, .navbar');
+  const currentScroll = window.pageYOffset;
+  
+  if(navbar) {
+    if(currentScroll > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }
+  
+  lastScroll = currentScroll;
+});
